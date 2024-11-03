@@ -1,0 +1,38 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:AuthenticationPrototype.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="500" d:DesignHeight="400"
+        Width="500" Height="400"
+        x:Class="AuthenticationPrototype.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        
+        Icon="/Assets/avalonia-logo.ico"
+        Title="AuthenticationPrototype">
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+    
+    
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="300">
+
+        <TextBlock Text="Authentication Prototype" FontWeight="Bold" FontSize="22" HorizontalAlignment="Center" Margin="0,0,0,5"/>
+
+        <TextBlock Margin="0 5" >Username:</TextBlock>
+        <TextBox Text="{Binding Username}" Watermark="Enter your Username"/>
+ 
+        <TextBlock Margin="0 5" >Password:</TextBlock>
+        <TextBox Text="{Binding Password}" PasswordChar="●" Watermark="Enter your password"/>
+
+        <TextBlock Text="{Binding OutputMessage}" Foreground="Crimson" FontSize="12" />
+
+        <Button Content="Log in" Command="{Binding LoginCommand}" FontWeight="Bold" HorizontalContentAlignment="Center" Width="300" HorizontalAlignment="Center" Margin="0 5" />
+
+    </StackPanel>
+    
+</Window>
